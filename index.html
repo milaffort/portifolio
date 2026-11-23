@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casamento A&amp;R</title>
+<style>
+:root{color-scheme:dark;--bg:#0e0e11;--bg2:#17171c;--tx:#ececf0;--mu:#9a9aa6;--ln:#2a2a31;--ac:#d9dce3;--hr:#ff5d73;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.cover{position:relative;height:100vh;height:100svh;min-height:480px;display:grid;place-items:center;text-align:center;overflow:hidden;margin-top:calc(-1*env(safe-area-inset-top,0px))}
+.cover video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,10,14,.3),rgba(10,10,14,.75))}
+.in{position:relative;z-index:1;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.in img{width:clamp(90px,15vmin,180px);filter:drop-shadow(0 6px 24px rgba(0,0,0,.6))}
+h1{margin:6px 0 0;font-weight:300;letter-spacing:.32em;text-transform:uppercase;font-size:clamp(16px,2.6vw,26px)}
+.in p{margin:0;color:#c9c9d2;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+.btn{border:1px solid var(--ac);background:transparent;padding:12px 28px;margin-top:10px;letter-spacing:.2em;text-transform:uppercase;font-size:12px;transition:.25s}
+.btn:hover{background:var(--ac);color:#111}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;align-items:center;gap:12px;padding:10px 20px;background:rgba(14,14,17,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.bar img{height:26px}
+.tabs{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.tabs button{background:none;border:0;padding:10px 14px;color:var(--mu);white-space:nowrap;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid transparent}
+.tabs button.on{color:var(--tx);border-color:var(--ac)}
+.ib{background:none;border:1px solid var(--ln);border-radius:20px;padding:8px 14px;font-size:13px;white-space:nowrap}
+.ib:hover,.ib.on{border-color:var(--ac)}
+.ib .n{color:var(--hr)}
+main{max-width:1400px;margin:0 auto;padding:28px 16px 80px}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin:6px 4px 18px;color:var(--mu);font-size:13px}
+.head b{color:var(--tx);font-weight:400;letter-spacing:.2em;text-transform:uppercase}
+.grid{columns:4 220px;column-gap:10px}
+.ph{position:relative;break-inside:avoid;margin:0 0 10px;background:var(--bg2);overflow:hidden;cursor:zoom-in}
+.ph img{display:block;width:100%;transition:transform .5s}
+.ph:hover img{transform:scale(1.03)}
+.hv{position:absolute;right:8px;top:8px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.45);display:grid;place-items:center;opacity:0;transition:.2s}
+.ph:hover .hv,.hv.on{opacity:1}
+@media (hover:none){.hv{opacity:1}}
+.hv svg,.lb .hv svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2}
+.hv.on svg{fill:var(--hr);stroke:var(--hr)}
+.empty{color:var(--mu);text-align:center;padding:80px 0}
+footer{text-align:center;color:var(--mu);font-size:12px;letter-spacing:.14em;padding:30px 0 50px;border-top:1px solid var(--ln)}
+footer img{height:30px;display:block;margin:0 auto 12px}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,6,8,.96);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:80vh;object-fit:contain}
+.lb .t{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;display:flex;gap:10px;align-items:center}
+.lb .t>*{position:static;opacity:1}
+.lb .c{position:absolute;top:calc(22px + env(safe-area-inset-top,0px));left:20px;color:var(--mu);font-size:13px;letter-spacing:.14em}
+.nv{position:absolute;top:50%;transform:translateY(-50%);background:none;border:0;font-size:44px;padding:20px;color:var(--mu)}
+.nv:hover{color:#fff}.pv{left:4px}.nx{right:4px}
+.tt{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--ac);color:#111;padding:10px 18px;border-radius:24px;font-size:13px;opacity:0;pointer-events:none;transition:.3s;z-index:60}
+.tt.on{opacity:1;transform:translateX(-50%)}
+@media (max-width:600px){.bar{padding:8px 10px}.bar img{display:none}.grid{columns:2 140px;column-gap:6px}.ph{margin-bottom:6px}main{padding:18px 8px 60px}}
+</style>
+</head>
+<body>
+<header class="cover">
+<video poster="assets/capa.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" src="assets/fundo.mp4"></video>
+<div class="in">
+<img src="assets/logo.png" alt="Logo">
+<h1>Casamento A&amp;R</h1>
+<p>21 de novembro de 2026</p>
+<button class="btn" onclick="document.getElementById('g').scrollIntoView()">Ver galeria</button>
+</div>
+</header>
+<nav class="bar" id="g">
+<img src="assets/logo.png" alt="Logo">
+<div class="tabs" id="tabs"></div>
+<button class="ib" id="fb">♥ Favoritas <span class="n" id="fn">0</span></button>
+<button class="ib" id="sh">Compartilhar link</button>
+</nav>
+<main>
+<div class="head"><b id="ht">Todas</b><span id="hc"></span></div>
+<div class="grid" id="grid"></div>
+<div class="empty" id="em" hidden>Você ainda não marcou nenhuma favorita. Toque no coração de uma foto.</div>
+</main>
+<footer><img src="assets/logo.png" alt="Logo">© 2026 · Todos os direitos reservados</footer>
+<div class="lb" id="lb">
+<span class="c" id="lc"></span>
+<div class="t"><button class="hv" id="lh" aria-label="Favoritar"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9.1C1 8.5 3 5 6.4 5c2 0 3.6 1.1 5.6 3 2-1.9 3.6-3 5.6-3C21 5 23 8.500 21.300 11.900 19 16.400 12 21 12 21z"/></svg></button><a class="ib" id="ld" download>Baixar</a><button class="ib" id="lx">✕</button></div>
+<button class="nv pv" id="lp" aria-label="Anterior">‹</button><img id="li" alt=""><button class="nv nx" id="ln" aria-label="Próxima">›</button>
+</div>
+<div class="tt" id="tt"></div>
+<script>
+var P=[{"t": "fotos/thumbs/foto-01.jpg","u": "fotos/foto-01.jpg","s": "Noiva"},{"t": "fotos/thumbs/foto-02.jpg","u": "fotos/foto-02.jpg","s": "Noiva"},{"t": "fotos/thumbs/foto-03.jpg","u": "fotos/foto-03.jpg","s": "Noiva"},{"t": "fotos/thumbs/foto-04.jpg","u": "fotos/foto-04.jpg","s": "Noiva"},{"t": "fotos/thumbs/foto-05.jpg","u": "fotos/foto-05.jpg","s": "Família"},{"t": "fotos/thumbs/foto-06.jpg","u": "fotos/foto-06.jpg","s": "Família"},{"t": "fotos/thumbs/foto-07.jpg","u": "fotos/foto-07.jpg","s": "Família"},{"t": "fotos/thumbs/foto-08.jpg","u": "fotos/foto-08.jpg","s": "Família"},{"t": "fotos/thumbs/foto-09.jpg","u": "fotos/foto-09.jpg","s": "Família"},{"t": "fotos/thumbs/foto-10.jpg","u": "fotos/foto-10.jpg","s": "Família"},{"t": "fotos/thumbs/foto-11.jpg","u": "fotos/foto-11.jpg","s": "Família"},{"t": "fotos/thumbs/foto-12.jpg","u": "fotos/foto-12.jpg","s": "Família"},{"t": "fotos/thumbs/foto-13.jpg","u": "fotos/foto-13.jpg","s": "Família"},{"t": "fotos/thumbs/foto-14.jpg","u": "fotos/foto-14.jpg","s": "Família"},{"t": "fotos/thumbs/foto-15.jpg","u": "fotos/foto-15.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-16.jpg","u": "fotos/foto-16.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-17.jpg","u": "fotos/foto-17.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-18.jpg","u": "fotos/foto-18.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-19.jpg","u": "fotos/foto-19.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-20.jpg","u": "fotos/foto-20.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-21.jpg","u": "fotos/foto-21.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-22.jpg","u": "fotos/foto-22.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-23.jpg","u": "fotos/foto-23.jpg","s": "Mãe e filho"},{"t": "fotos/thumbs/foto-24.jpg","u": "fotos/foto-24.jpg","s": "Mãe e filho"}];
+var S=["Todas","Noiva","Família","Mãe e filho"],cur="Todas",favOnly=false,idx=0,list=[],fav={};
+try{fav=JSON.parse(localStorage.getItem("fav")||"{}")}catch(e){}
+var $=function(i){return document.getElementById(i)};
+var H='<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9.1C1 8.5 3 5 6.4 5c2 0 3.6 1.1 5.6 3 2-1.9 3.6-3 5.6-3C21 5 23 8.5 21.3 11.9 19 16.4 12 21 12 21z"/></svg>';
+function save(){try{localStorage.setItem("fav",JSON.stringify(fav))}catch(e){}$("fn").textContent=Object.keys(fav).length}
+function toast(m){var t=$("tt");t.textContent=m;t.classList.add("on");setTimeout(function(){t.classList.remove("on")},1800)}
+function tog(i){if(fav[i])delete fav[i];else fav[i]=1;save();render()}
+function render(){
+list=P.map(function(p,i){return{i:i,s:p.s}}).filter(function(o){return(cur=="Todas"||o.s==cur)&&(!favOnly||fav[o.i])});
+$("tabs").innerHTML=S.map(function(s){return'<button class="'+(s==cur?"on":"")+'" data-s="'+s+'">'+s+'</button>'}).join("");
+$("ht").textContent=favOnly?"Favoritas":cur;$("hc").textContent=list.length+" fotos";
+$("fb").classList.toggle("on",favOnly);$("em").hidden=list.length>0;
+$("grid").innerHTML=list.map(function(o,k){return'<figure class="ph" data-k="'+k+'"><img loading="lazy" src="'+P[o.i].t+'" alt="Foto '+(o.i+1)+'"><button class="hv'+(fav[o.i]?" on":"")+'" data-f="'+o.i+'" aria-label="Favoritar">'+H+'</button></figure>'}).join("");
+if($("lb").classList.contains("on"))show(idx)}
+function show(k){if(!list.length){$("lb").classList.remove("on");return}idx=(k+list.length)%list.length;var o=list[idx];$("li").src=P[o.i].u;$("ld").href=P[o.i].u;$("ld").setAttribute("download","foto-"+(o.i+1)+".jpg");$("lc").textContent=(idx+1)+" / "+list.length;$("lh").classList.toggle("on",!!fav[o.i])}
+$("tabs").onclick=function(e){var s=e.target.dataset.s;if(s){cur=s;favOnly=false;render()}};
+$("fb").onclick=function(){favOnly=!favOnly;render()};
+$("grid").onclick=function(e){var f=e.target.closest("[data-f]");if(f){e.stopPropagation();tog(+f.dataset.f);return}var p=e.target.closest(".ph");if(p){$("lb").classList.add("on");show(+p.dataset.k)}};
+$("lh").onclick=function(){tog(list[idx].i)};
+$("lx").onclick=function(){$("lb").classList.remove("on")};
+$("lp").onclick=function(){show(idx-1)};$("ln").onclick=function(){show(idx+1)};
+document.onkeydown=function(e){if(!$("lb").classList.contains("on"))return;if(e.key=="Escape")$("lx").onclick();if(e.key=="ArrowLeft")show(idx-1);if(e.key=="ArrowRight")show(idx+1)};
+$("sh").onclick=function(){var u=location.href;try{navigator.clipboard.writeText(u).then(function(){toast("Link copiado!")},function(){toast(u)})}catch(e){toast(u)}};
+var v=document.querySelector(".cover video");function pl(){var r=v.play();if(r&&r.catch)r.catch(function(){})}pl();document.addEventListener("touchstart",pl,{once:true});
+save();render();
+</script>
+</body>
+</html>
